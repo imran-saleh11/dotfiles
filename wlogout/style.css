@@ -1,0 +1,68 @@
+* {
+    background-image: none;
+    font-size: 20px;
+    font-family: "JetBrains Mono NFM";
+}
+
+@import './colors.css';
+
+window {
+    background-color: rgba(17, 17, 17, 0.45)
+}
+
+button {
+    color: @inverse_surface;
+    background-color: #101419;
+    outline-style: none;
+    border: none;
+    border-width: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    border-radius: 0px;
+    box-shadow: none;
+    text-shadow: none;
+    animation: gradient_f 20s ease-in infinite; }
+/*
+button:focus {
+    background-color: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-size: 30%;
+}
+*/
+button:hover {
+    background-color: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-size: 40%;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
+}
+
+button span {
+    font-size: 1.2em; 
+}
+
+#lock {
+    background-image: image(url("./icons/lock.png"));
+    border-radius: 12px 0px 0px 12px;
+    margin : 10px 0px 10px 10px;
+}
+
+#logout {
+    background-image: image(url("./icons/logout.png"));
+    border-radius: 0px 0px 0px 0px;
+    margin : 10px 0px 10px 0px;
+}
+
+#shutdown {
+    background-image: image(url("./icons/power.png"));
+    border-radius: 0px 0px 0px 0px;
+    margin : 10px 0px 10px 0px;
+}
+
+#reboot {
+    background-image: image(url("./icons/restart.png"));
+    border-radius: 0px 12px 12px 0px;
+    margin : 10px 10px 10px 0px;
+}

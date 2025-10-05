@@ -1,0 +1,83 @@
+* {
+    font:            "JetBrains Mono Nerd Font 8";
+    se:               rgba ( 94, 108, 145, 75 % );
+    bg:               rgba ( 0, 0, 0, 0 % );
+    red:              rgba ( 255, 85, 85, 75 % );
+    bg2:              rgba ( 0, 0, 0, 100 % );
+    al:               rgba ( 0, 0, 0, 0 % );
+    opacity:          75.0000% ;
+    fg:               rgba ( 255, 255, 255, 100 % );
+    background-color: var(bg);
+    ac:               rgba ( 255, 121, 198, 75 % );
+}
+window {
+    font-size:        6px;
+    padding:          4px;
+    height:           18%;
+    width:            10%;
+    location:         north west;
+    anchor:           north west;
+    x-offset:         10px;
+    y-offset:         0px;
+    background-color: var(bg2);
+    border-radius:    6px ;
+    border-color:     var(ac);
+    border:           0px ;
+    children: [listview];
+}
+entry {
+    spacing:    0;
+    text-color: var(fg);
+}
+mainbox {
+    padding:      0;
+    border-color: var(ac);
+    border:       0px ;
+    children:     [ inputbar,listview ];
+}
+listview {
+    fixed-height: 0;
+    padding:      5px ;
+    scrollbar:    false;
+    dynamic:      true;
+    border-color: var(ac);
+    columns:      1;
+    spacing:      4px ;
+    border:       0px ;
+}
+element-text {
+    background-color: rgba ( 0, 0, 0, 0 % );
+    text-color:       inherit;
+}
+element {
+    padding:       5px ;
+    border:        0px ;
+    border-radius: 4px ;
+    horizontal-align: 0.5;
+}
+
+
+element normal.normal {
+    background-color: var(bg);
+    text-color:       var(fg);
+}
+element normal.active {
+    background-color: var(green);
+    text-color:       var(bg2);
+}
+element selected.normal {
+    background-color: var(fg);
+    text-color:       var(bg2);
+}
+element selected.active {
+    background-color: var(fg);
+    text-color:       var(bg2);
+}
+element alternate.normal {
+    background-color: var(bg);
+    text-color:       var(fg);
+}
+element alternate.active {
+    background-color: var(bg);
+    text-color:       var(fg);
+}

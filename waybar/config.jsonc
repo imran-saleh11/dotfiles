@@ -1,0 +1,172 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 22,
+    "spacing": 4,
+    "modules-left": [
+        "custom/logo" 
+    ],
+    "modules-center": [
+	 "hyprland/workspaces"
+            ],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "bluetooth",
+	"custom/mydate",
+	"clock",
+	"custom/notification"
+
+    ],
+      "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='10pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+        },
+        "persistent-workspaces": {
+            "*": [ 1,2,3,4,5,6,7 ]
+        }
+    },
+       "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "unknown-tag": "N/A",
+        "interval": 5,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 12,
+        "spacing": 10,
+        "icons": {}
+    },
+    "bluetooth": {
+        "format": "",
+	"tooltip": false,
+        "format-disabled": "󰂲",
+        "format-connected": "",
+        "on-click": "blueberry"
+    },
+
+    "custom/mydate": {
+  "format": "{}",
+  "exec": "date '+%a %b %d'",
+  "interval": 60,
+  "tooltip": false
+},
+
+    "clock": {
+        "timezone": "Bangladesh/Dhaka",
+        "format": "{:%I:%M %p}",
+	"tooltip": false,
+    "on-click": "gnome-clocks"
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "network": {
+        "format": "",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+	"tooltip": false ,
+       // "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        //"tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 3,
+        "spacing": 1,
+        "on-click": "nmgui"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    },
+    "custom/logo": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "$HOME/.config/rofi/scripts/arch-logo.sh"
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "rotate": 0,
+    "format-muted": "󰝟",
+    "on-click": "kitty --class=Wiremix -e wiremix",
+    "on-click-right": "pamixer -t",
+    //"tooltip-format": "Playing at {volume}%",
+    "tooltip-format": "{icon} {desc} {volume}%",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": ["", "", ""]
+    }
+  }
+}
+
+
+
