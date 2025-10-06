@@ -24,6 +24,7 @@
 # System level
 
 * pacseek
+* keyd
 * Nm Gui/impala  -- Network Manager
 * Wiremix -- Audio control
 * Blueberry -- For bluetooth
