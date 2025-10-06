@@ -20,6 +20,7 @@
 * Zathura
 * Vlc
 * Obsidian
+* ibus
 
 # System level
 
@@ -35,4 +36,10 @@
 * hyprpicker
 * clipse -- clipboard Manager
 * grim/some other screenshot utility
+* emote --emoji picker/emoji panel from omarchy
 
+# Others
+
+* fonts: from omarchy
+* bangla fonts, emojis
+* configure fastfetch logo from a file(like omarchy)
