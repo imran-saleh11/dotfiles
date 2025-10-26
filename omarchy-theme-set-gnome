@@ -1,0 +1,36 @@
+#!/bin/bash
+
+rm -rf ~/.config/gtk-3.0/ ~/.config/gtk-4.0/
+mkdir -p ~/.themes
+cp -rns ~/.local/share/themes/* ~/.themes
+
+GNOME_GTK_THEME=~/.config/omarchy/current/theme/gtk.theme
+GNOME_ICONS_THEME=~/.config/omarchy/current/theme/icons.theme
+
+if [[ -f $GNOME_GTK_THEME ]]; then
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+  gsettings set org.gnome.desktop.interface gtk-theme "$(<$GNOME_GTK_THEME)"
+  cp -rns ~/.themes/"$(<$GNOME_GTK_THEME)"/gtk-4.0 ~/.config/
+
+  flatpak --user override \
+    --filesystem="$HOME/.themes" \
+    --filesystem="$HOME/.local/share/icons" \
+    --filesystem="$HOME/.local/share/themes/" \
+    --filesystem="$HOME/.icons" \
+    --env=GTK_THEME=$(<$GNOME_GTK_THEME) \
+    --env=ICON_THEME=${GNOME_ICONS_THEME}
+
+  flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo &
+else
+  gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+  gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+  flatpak override --reset
+fi
+
+# Change gnome icon theme color
+if [[ -f $GNOME_ICONS_THEME ]]; then
+  gsettings set org.gnome.desktop.interface icon-theme "$(<$GNOME_ICONS_THEME)"
+else
+  gsettings set org.gnome.desktop.interface icon-theme "Yaru-blue"
+fi
+
