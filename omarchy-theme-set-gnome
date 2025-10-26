@@ -24,7 +24,7 @@ if [[ -f $GNOME_GTK_THEME ]]; then
 else
   gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
   gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-  flatpak override --reset
+  rm -rf ~/.local/share/flatpak/overrides/
 fi
 
 # Change gnome icon theme color
